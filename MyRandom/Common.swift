@@ -30,3 +30,12 @@ func stringSize(string:String , superSize:CGSize , font:CGFloat) -> CGSize {
     let rect = string.boundingRect(with: superSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: font)], context: nil)
     return rect.size
 }
+
+//存在一个里面还是两个里面呢？ 还是一个里面吧
+//存在一个array 里面 每个元素就是一个 dic key 就是 random 名称 array 里面每一个都是model
+class RandomModel : NSObject {
+    var randomName:String = ""
+    var randomArray:Array<String> = []
+    
+}
+

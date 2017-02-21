@@ -283,7 +283,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="gmI-Xa-yOm">
-                        <barButtonItem key="rightBarButtonItem" title="➕" id="O6O-O5-LaL">
+                        <barButtonItem key="rightBarButtonItem" title="+" id="O6O-O5-LaL">
                             <connections>
                                 <segue destination="qtP-ew-GRL" kind="push" id="tn1-PL-moR"/>
                             </connections>
@@ -309,34 +309,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cTo-CD-Vpb">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hpS-s6-pkg">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fqG-Sg-EaD">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="qtP-ew-GRL" id="cpW-eB-AjT"/>
-                                    <outlet property="delegate" destination="qtP-ew-GRL" id="5Ql-pw-7gj"/>
-                                </connections>
-                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ee-jB-RLw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DA5-Xd-lL0">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入参与随机元素，右上角确认" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DA5-Xd-lL0">
                                         <rect key="frame" x="18" y="0.0" width="339" height="56"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -352,27 +328,76 @@
                                     <constraint firstItem="DA5-Xd-lL0" firstAttribute="leading" secondItem="6ee-jB-RLw" secondAttribute="leading" constant="18" id="lh0-Yh-ybV"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eCt-YY-qKi">
+                                <rect key="frame" x="0.0" y="120" width="375" height="499"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QKk-cw-opX">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ofj-Gn-onj">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="qtP-ew-GRL" id="3B6-Ex-DzT"/>
+                                    <outlet property="delegate" destination="qtP-ew-GRL" id="gDM-zn-1wA"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3U-qL-Lhz">
+                                <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBd-w6-vYN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                        <state key="normal" title="这些就是全部元素了">
+                                            <color key="titleColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirm:" destination="qtP-ew-GRL" eventType="touchUpInside" id="sXe-oo-o7p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eBd-w6-vYN" firstAttribute="leading" secondItem="j3U-qL-Lhz" secondAttribute="leading" id="4qv-Xi-4v1"/>
+                                    <constraint firstItem="eBd-w6-vYN" firstAttribute="top" secondItem="j3U-qL-Lhz" secondAttribute="top" id="8LD-EG-txm"/>
+                                    <constraint firstAttribute="height" constant="48" id="EKA-sH-keD"/>
+                                    <constraint firstAttribute="trailing" secondItem="eBd-w6-vYN" secondAttribute="trailing" id="HjB-ZG-HfY"/>
+                                    <constraint firstAttribute="bottom" secondItem="eBd-w6-vYN" secondAttribute="bottom" id="clj-PJ-yzf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="cTo-CD-Vpb" secondAttribute="trailing" id="3oB-a3-k9y"/>
+                            <constraint firstItem="Nva-oP-Ejl" firstAttribute="top" secondItem="j3U-qL-Lhz" secondAttribute="bottom" id="76l-1z-p2M"/>
                             <constraint firstItem="6ee-jB-RLw" firstAttribute="top" secondItem="mVZ-22-L1M" secondAttribute="bottom" id="89z-zp-XRn"/>
                             <constraint firstItem="6ee-jB-RLw" firstAttribute="leading" secondItem="dGq-5X-RYw" secondAttribute="leading" id="Smc-LQ-AbP"/>
                             <constraint firstAttribute="trailing" secondItem="6ee-jB-RLw" secondAttribute="trailing" id="cw0-EX-D8N"/>
-                            <constraint firstItem="cTo-CD-Vpb" firstAttribute="top" secondItem="6ee-jB-RLw" secondAttribute="bottom" id="eGi-xw-zqc"/>
-                            <constraint firstItem="Nva-oP-Ejl" firstAttribute="top" secondItem="cTo-CD-Vpb" secondAttribute="bottom" id="rDI-Yf-ycZ"/>
-                            <constraint firstItem="cTo-CD-Vpb" firstAttribute="leading" secondItem="dGq-5X-RYw" secondAttribute="leading" id="sD3-qV-MCK"/>
+                            <constraint firstItem="eCt-YY-qKi" firstAttribute="leading" secondItem="dGq-5X-RYw" secondAttribute="leading" id="pgW-yA-6aM"/>
+                            <constraint firstAttribute="trailing" secondItem="eCt-YY-qKi" secondAttribute="trailing" id="pvx-af-2fS"/>
+                            <constraint firstItem="j3U-qL-Lhz" firstAttribute="leading" secondItem="dGq-5X-RYw" secondAttribute="leading" id="q1a-1O-urA"/>
+                            <constraint firstItem="j3U-qL-Lhz" firstAttribute="top" secondItem="eCt-YY-qKi" secondAttribute="bottom" id="t0b-l6-c5R"/>
+                            <constraint firstItem="eCt-YY-qKi" firstAttribute="top" secondItem="6ee-jB-RLw" secondAttribute="bottom" id="vOF-ay-FHt"/>
+                            <constraint firstAttribute="trailing" secondItem="j3U-qL-Lhz" secondAttribute="trailing" id="x6X-3Q-Qln"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9j-qA-kuf">
-                        <barButtonItem key="rightBarButtonItem" title="✔️" id="ZK5-x3-wDJ">
+                        <barButtonItem key="rightBarButtonItem" title="✓" id="ZK5-x3-wDJ">
                             <connections>
                                 <action selector="confirAdd:" destination="qtP-ew-GRL" id="h9s-Zv-Xh8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mainCollectionView" destination="cTo-CD-Vpb" id="bpr-e3-N4Z"/>
+                        <outlet property="mainCollectionView" destination="eCt-YY-qKi" id="cZ1-YX-JUl"/>
                         <outlet property="mainTextField" destination="DA5-Xd-lL0" id="Hdn-g4-qEN"/>
                     </connections>
                 </viewController>

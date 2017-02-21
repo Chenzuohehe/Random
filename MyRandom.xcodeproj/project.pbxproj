@@ -41,14 +41,14 @@
 
 /* Begin PBXFileReference section */
 		011CE58F55C099A69B7EB193 /* Pods_MyRandom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRandom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E21FAA51E2BB19100103550 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
-		4E9D57C81E52E4560040A022 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZCollectionViewLeftAlignedLayout.swift; sourceTree = "<group>"; };
-		4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CZTextCollectionViewCell.swift; sourceTree = "<group>"; };
-		4EB1E7451E5551CD00F79817 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		4E21FAA51E2BB19100103550 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomViewController.swift; path = ../CustomViewController.swift; sourceTree = "<group>"; };
+		4E9D57C81E52E4560040A022 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ../AddViewController.swift; sourceTree = "<group>"; };
+		4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCollectionViewLeftAlignedLayout.swift; path = ../CZCollectionViewLeftAlignedLayout.swift; sourceTree = "<group>"; };
+		4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZTextCollectionViewCell.swift; path = ../CZTextCollectionViewCell.swift; sourceTree = "<group>"; };
+		4EB1E7451E5551CD00F79817 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = ../Common.swift; sourceTree = "<group>"; };
 		4ED6E6261E2BAF1C00929029 /* MyRandom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRandom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4ED6E62B1E2BAF1C00929029 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
+		4ED6E62B1E2BAF1C00929029 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		4ED6E62E1E2BAF1C00929029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4ED6E6301E2BAF1C00929029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ED6E6331E2BAF1C00929029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,6 +98,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4ECEDD481E5A97040013D585 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */,
+				4EB1E7451E5551CD00F79817 /* Common.swift */,
+				4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		4ECEDD491E5A970C0013D585 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4ED6E62B1E2BAF1C00929029 /* ViewController.swift */,
+				4E21FAA51E2BB19100103550 /* CustomViewController.swift */,
+				4E9D57C81E52E4560040A022 /* AddViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4ECEDD4A1E5A97130013D585 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4ED6E61D1E2BAF1C00929029 = {
 			isa = PBXGroup;
 			children = (
@@ -123,13 +151,9 @@
 		4ED6E6281E2BAF1C00929029 /* MyRandom */ = {
 			isa = PBXGroup;
 			children = (
-				4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */,
-				4EB1E7451E5551CD00F79817 /* Common.swift */,
-				4ED6E62B1E2BAF1C00929029 /* ViewController.swift */,
-				4E21FAA51E2BB19100103550 /* CustomViewController.swift */,
-				4E9D57C81E52E4560040A022 /* AddViewController.swift */,
-				4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */,
-				4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */,
+				4ECEDD491E5A970C0013D585 /* Controller */,
+				4ECEDD4A1E5A97130013D585 /* View */,
+				4ECEDD481E5A97040013D585 /* Other */,
 				4ED6E62D1E2BAF1C00929029 /* Main.storyboard */,
 				4ED6E6301E2BAF1C00929029 /* Assets.xcassets */,
 				4ED6E6321E2BAF1C00929029 /* LaunchScreen.storyboard */,

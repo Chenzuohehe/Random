@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SnapKit
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var minTextField: UITextField!
