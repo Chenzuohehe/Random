@@ -25,6 +25,8 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         mainCollectionView.collectionViewLayout = layout
         mainCollectionView.register(CZTextCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
+        self.navigationItem.hidesBackButton = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,12 +105,23 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     
     @IBAction func confirm(_ sender: Any) {
         //userd
-        
+        //假装我做了判断
+        saveRandom()
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     func saveRandom() {
+        var array = userDefault.object(forKey: ARRAYKEY) as! NSArray
+        let mutaleArray:NSMutableArray = NSMutableArray(array: array)
         
+        let msgDic:NSDictionary = NSDictionary(dictionary: ["name":self.title!, "members":self.stringArray])
+        mutaleArray.add(msgDic)
+        array = mutaleArray
+        userDefault.set(array, forKey: ARRAYKEY)
+        
+        let dataArray = userDefault.object(forKey: ARRAYKEY) as! NSArray
+        print("这个不空", dataArray)
+
     }
     
 }

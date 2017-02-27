@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var array:[Int] = []
     let string:String = "点击屏幕\n或\n摇一摇生成随机数"
     var isRepeat:Bool = true
-    var gradientLayer:CAGradientLayer = CAGradientLayer()
+//    var gradientLayer:CAGradientLayer = CAGradientLayer()
     
     
     override func viewDidLoad() {
@@ -122,11 +122,7 @@ class ViewController: UIViewController {
         self.becomeFirstResponder()
     }
     func changeBackGroudColor() {
-        gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [randomColor().cgColor,randomColor().cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        let gradientLayer = randomGradientLayer(frame: self.view.bounds)
         self.backVis.layer.addSublayer(gradientLayer)
     }
     

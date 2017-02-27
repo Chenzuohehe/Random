@@ -13,6 +13,7 @@
 		4E9D57CB1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */; };
 		4EB1E7441E54568200F79817 /* CZTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */; };
 		4EB1E7461E5551CD00F79817 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1E7451E5551CD00F79817 /* Common.swift */; };
+		4ECEDD661E5D869E0013D585 /* GradientcolorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEDD651E5D869E0013D585 /* GradientcolorTableViewCell.swift */; };
 		4ED6E62A1E2BAF1C00929029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */; };
 		4ED6E62C1E2BAF1C00929029 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED6E62B1E2BAF1C00929029 /* ViewController.swift */; };
 		4ED6E62F1E2BAF1C00929029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ED6E62D1E2BAF1C00929029 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCollectionViewLeftAlignedLayout.swift; path = ../CZCollectionViewLeftAlignedLayout.swift; sourceTree = "<group>"; };
 		4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZTextCollectionViewCell.swift; path = ../CZTextCollectionViewCell.swift; sourceTree = "<group>"; };
 		4EB1E7451E5551CD00F79817 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = ../Common.swift; sourceTree = "<group>"; };
+		4ECEDD651E5D869E0013D585 /* GradientcolorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientcolorTableViewCell.swift; sourceTree = "<group>"; };
 		4ED6E6261E2BAF1C00929029 /* MyRandom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRandom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		4ED6E62B1E2BAF1C00929029 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */,
+				4ECEDD651E5D869E0013D585 /* GradientcolorTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				4ED6E62A1E2BAF1C00929029 /* AppDelegate.swift in Sources */,
 				4EB1E7441E54568200F79817 /* CZTextCollectionViewCell.swift in Sources */,
 				4E9D57C91E52E4560040A022 /* AddViewController.swift in Sources */,
+				4ECEDD661E5D869E0013D585 /* GradientcolorTableViewCell.swift in Sources */,
 				4E21FAA61E2BB19200103550 /* CustomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
