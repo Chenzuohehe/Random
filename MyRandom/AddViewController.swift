@@ -13,7 +13,6 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     @IBOutlet weak var mainTextField: UITextField!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
-    var userDefault:UserDefaults = UserDefaults.standard
     var stringArray = [String]()
     let cellHeight = 40
     let cellFont = CGFloat(14)
@@ -25,34 +24,31 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         mainCollectionView.collectionViewLayout = layout
         mainCollectionView.register(CZTextCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
-        self.navigationItem.hidesBackButton = true
     }
     
+    /**======================================================
+     alertView
+     */
     override func viewWillAppear(_ animated: Bool) {
-        addNameAlert(msg: "")
+        addNameAlert(msg: "比如：\"中午吃什么\"、\"随机背单词\"")
     }
-    
     func addNameAlert(msg: String) {
-        let alertView = UIAlertView(title: "请输入随机名称", message: msg, delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确认")
-        alertView.title = "请输入随机名称"
+        let alertView = UIAlertView(title: "请输入随机内容的标题", message: msg, delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确认")
         alertView.alertViewStyle = .plainTextInput
         
         let titleTextField = alertView.textField(at: 0)
         titleTextField?.placeholder = "名称"
         alertView.show()
     }
-    
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         switch buttonIndex {
         case 0:
-            _ = self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         default:
             print("确认")
             let textField = alertView.textField(at: 0)
             let text:String = (textField?.text)!
-            
-            if text.characters.count > 0 {
+            if text.count > 0 {
                 self.title = textField?.text
             }else{
                 addNameAlert(msg: "随机名称不能为空")
@@ -60,6 +56,9 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         }
     }
     
+    /**======================================================
+     colletionView
+     */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CZTextCollectionViewCell
@@ -80,18 +79,23 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stringArray.count
     }
-    
-    func hiddenTextField() {
-        self.mainTextField.resignFirstResponder()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //点击删除 对应字符串
+        let string = stringArray[indexPath.row]
+        print(string)
+        stringArray.remove(at: indexPath.row)
+        self.mainCollectionView.reloadData()
     }
     
+    /**======================================================
+     
+     */
     @IBAction func confirAdd(_ sender: UIBarButtonItem) {
         let string:String = mainTextField.text!
-        if string.characters.count > 0 {
+        if string.count > 0 {
             stringArray.append(string)
             mainTextField.text = ""
             mainCollectionView.reloadData()
@@ -100,28 +104,24 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
             alertView.show()
         }
     }
-    
-    
-    
     @IBAction func confirm(_ sender: Any) {
         //userd
         //假装我做了判断
+        if self.stringArray.count == 0 {
+            //没有元素
+            let alertView = UIAlertView(title: "随机元素个数为0", message: "", delegate: nil, cancelButtonTitle: "取消")
+            alertView.show()
+            return
+        }
         saveRandom()
-        _ = self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func saveRandom() {
-        var array = userDefault.object(forKey: ARRAYKEY) as! NSArray
-        let mutaleArray:NSMutableArray = NSMutableArray(array: array)
-        
-        let msgDic:NSDictionary = NSDictionary(dictionary: ["name":self.title!, "members":self.stringArray])
-        mutaleArray.add(msgDic)
-        array = mutaleArray
-        userDefault.set(array, forKey: ARRAYKEY)
-        
-        let dataArray = userDefault.object(forKey: ARRAYKEY) as! NSArray
-        print("这个不空", dataArray)
-
+        let random = RandomModel(title: self.title!, items: self.stringArray)
+        addRandom(random: random)
     }
-    
+    func hiddenTextField() {
+        self.mainTextField.resignFirstResponder()
+    }
 }

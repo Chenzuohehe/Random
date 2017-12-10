@@ -12,6 +12,8 @@ let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 let ARRAYKEY = "dataArray"
+let RandomKey = "RandomKey"
+
 
 
 func RGB(r:CGFloat, g:CGFloat, b:CGFloat) -> UIColor {
@@ -42,5 +44,38 @@ func randomGradientLayer(frame:CGRect) -> CAGradientLayer {
     gradientLayer.startPoint = CGPoint(x: 0, y: 0)
     gradientLayer.endPoint = CGPoint(x: 0, y: 1)
     return gradientLayer
+}
+
+////增删改查
+var userDefault:UserDefaults = UserDefaults.standard
+
+func addRandom(random: RandomModel) {
+    
+    let randoms = getRandoms()
+    randoms.add(random)
+    let radnomsData = NSKeyedArchiver.archivedData(withRootObject: randoms)
+    userDefault.set(radnomsData, forKey: RandomKey)
+}
+func delectRandom(random: RandomModel) {
+    let randoms = getRandoms()
+    let midArr = NSMutableArray()
+    for item in randoms {
+        if random.title != (item as! RandomModel).title {
+            midArr.add(item)
+        }
+    }
+    let radnomsData = NSKeyedArchiver.archivedData(withRootObject: midArr)
+    userDefault.set(radnomsData, forKey: RandomKey)
+    print(midArr.count)
+}
+func getRandoms() -> NSMutableArray{
+    if (userDefault.object(forKey: RandomKey) != nil) {
+        let randomsData = userDefault.data(forKey: RandomKey)!
+        let randoms = NSKeyedUnarchiver.unarchiveObject(with: randomsData) as! NSMutableArray
+        return randoms
+    }else{
+        return NSMutableArray()
+    }
+    
 }
 

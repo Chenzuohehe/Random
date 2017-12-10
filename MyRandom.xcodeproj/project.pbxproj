@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07B9B0C29CC4F91F13A34020 /* Pods_MyRandom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011CE58F55C099A69B7EB193 /* Pods_MyRandom.framework */; };
 		4E21FAA61E2BB19200103550 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21FAA51E2BB19100103550 /* CustomViewController.swift */; };
+		4E7E522B1FDD0C6800A4A2C3 /* RandomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E522A1FDD0C6800A4A2C3 /* RandomModel.swift */; };
 		4E9D57C91E52E4560040A022 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D57C81E52E4560040A022 /* AddViewController.swift */; };
 		4E9D57CB1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */; };
 		4EB1E7441E54568200F79817 /* CZTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		011CE58F55C099A69B7EB193 /* Pods_MyRandom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRandom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E21FAA51E2BB19100103550 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomViewController.swift; path = ../CustomViewController.swift; sourceTree = "<group>"; };
+		4E7E522A1FDD0C6800A4A2C3 /* RandomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomModel.swift; sourceTree = "<group>"; };
 		4E9D57C81E52E4560040A022 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = ../AddViewController.swift; sourceTree = "<group>"; };
 		4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZCollectionViewLeftAlignedLayout.swift; path = ../CZCollectionViewLeftAlignedLayout.swift; sourceTree = "<group>"; };
 		4EB1E7431E54568200F79817 /* CZTextCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CZTextCollectionViewCell.swift; path = ../CZTextCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -103,9 +105,10 @@
 		4ECEDD481E5A97040013D585 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */,
 				4EB1E7451E5551CD00F79817 /* Common.swift */,
+				4E7E522A1FDD0C6800A4A2C3 /* RandomModel.swift */,
 				4E9D57CA1E52E80E0040A022 /* CZCollectionViewLeftAlignedLayout.swift */,
+				4ED6E6291E2BAF1C00929029 /* AppDelegate.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				4ED6E62A1E2BAF1C00929029 /* AppDelegate.swift in Sources */,
 				4EB1E7441E54568200F79817 /* CZTextCollectionViewCell.swift in Sources */,
 				4E9D57C91E52E4560040A022 /* AddViewController.swift in Sources */,
+				4E7E522B1FDD0C6800A4A2C3 /* RandomModel.swift in Sources */,
 				4ECEDD661E5D869E0013D585 /* GradientcolorTableViewCell.swift in Sources */,
 				4E21FAA61E2BB19200103550 /* CustomViewController.swift in Sources */,
 			);
