@@ -13,6 +13,8 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     @IBOutlet weak var mainTextField: UITextField!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
+    var random:RandomModel?
+    
     var stringArray = [String]()
     let cellHeight = 40
     let cellFont = CGFloat(14)
@@ -25,12 +27,18 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         mainCollectionView.collectionViewLayout = layout
         mainCollectionView.register(CZTextCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
-    
+        
     /**======================================================
      alertView
      */
     override func viewWillAppear(_ animated: Bool) {
-        addNameAlert(msg: "比如：\"中午吃什么\"、\"随机背单词\"")
+        if self.random?.title == nil {
+            addNameAlert(msg: "比如：\"中午吃什么\"、\"随机背单词\"")
+        }else{
+            self.title = self.random?.title
+            self.stringArray = (self.random?.randomItems)!
+        }
+        
     }
     func addNameAlert(msg: String) {
         let alertView = UIAlertView(title: "请输入随机内容的标题", message: msg, delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确认")
@@ -118,6 +126,9 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     }
     
     func saveRandom() {
+        if self.random?.title != nil {
+            delectRandom(random: self.random!)
+        }
         let random = RandomModel(title: self.title!, items: self.stringArray)
         addRandom(random: random)
     }

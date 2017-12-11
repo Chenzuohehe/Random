@@ -51,7 +51,7 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         let random = dataArray[indexPath.row] as! RandomModel
-        cell?.textLabel?.text = random.title!
+        cell?.textLabel?.text = random.title
         cell?.selectionStyle = .none
         cell?.backgroundColor = .white
         return cell!
@@ -60,12 +60,22 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
         print("我点击了这个随机")
         showPickView()
         let random = dataArray[indexPath.row] as! RandomModel
-        print(random.randomItems!)
+        print(random.randomItems)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        cell.backgroundColor = colorforIndex(indexPath.row)
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editRowAction = UITableViewRowAction(style: .default, title: "编辑") { (sender, index) in
+            print("编辑")
+            //跳转到已有页面
+            let random = self.dataArray[index.row] as! RandomModel
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = mainStoryBoard.instantiateViewController(withIdentifier: "addView") as! AddViewController
+            nextViewController.random = random
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+        editRowAction.backgroundColor = UIColor.yellow
         let deleteRowAction = UITableViewRowAction(style: .default, title: "删除") { (sender, index) in
             let random = self.dataArray[index.row] as! RandomModel
             delectRandom(random: random)
@@ -73,23 +83,10 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
             self.mainTableView.deleteRows(at: [index], with: .top)
         }
         deleteRowAction.backgroundColor = UIColor.orange
-        return [deleteRowAction]
+        return [deleteRowAction,editRowAction]
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
-    }
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .delete
-    }
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "删除"
-    }
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //这边删除数据
-        let random = dataArray[indexPath.row] as! RandomModel
-        delectRandom(random: random)
-        dataArray = getRandoms() as NSArray
-        self.mainTableView.deleteRows(at: [indexPath], with: .top)
     }
     
     

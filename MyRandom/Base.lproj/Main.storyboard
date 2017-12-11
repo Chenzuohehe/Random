@@ -261,7 +261,80 @@
             </objects>
             <point key="canvasLocation" x="-189.375" y="-11.25"/>
         </scene>
-        <!--测试一下-->
+        <!--View Controller-->
+        <scene sceneID="b5Y-g8-nCE">
+            <objects>
+                <viewController id="Jyw-a4-Gzd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3OM-U1-zvz"/>
+                        <viewControllerLayoutGuide type="bottom" id="LfU-bR-xr9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vxh-SI-cNp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否重复" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-PD-2Qf">
+                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="F8s-7l-iag"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eop-l2-GaI">
+                                <rect key="frame" x="0.0" y="79" width="375" height="438"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="90u-2O-SeA">
+                                <rect key="frame" x="127" y="50" width="121" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="5L9-uu-3pu"/>
+                                    <constraint firstAttribute="height" constant="28" id="pQx-9k-LbZ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="重复"/>
+                                    <segment title="不重复"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="repeatChange:" destination="9GD-Mj-bxN" eventType="valueChanged" id="imm-NX-fiW"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击屏幕\n或\n摇一摇生成随机数" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fga-Ng-y6U">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ZbA-JF-gEh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Eop-l2-GaI" secondAttribute="trailing" id="7Tx-z5-FLD"/>
+                            <constraint firstItem="Fjc-PD-2Qf" firstAttribute="leading" secondItem="vxh-SI-cNp" secondAttribute="leading" id="BQS-oq-2gu"/>
+                            <constraint firstItem="Fjc-PD-2Qf" firstAttribute="top" secondItem="3OM-U1-zvz" secondAttribute="bottom" id="KR0-d9-Irp"/>
+                            <constraint firstItem="Fga-Ng-y6U" firstAttribute="top" secondItem="Eop-l2-GaI" secondAttribute="bottom" id="Nwu-Nx-PYh"/>
+                            <constraint firstAttribute="trailing" secondItem="Fjc-PD-2Qf" secondAttribute="trailing" id="ec4-i7-oig"/>
+                            <constraint firstItem="LfU-bR-xr9" firstAttribute="top" secondItem="Fga-Ng-y6U" secondAttribute="bottom" id="fSN-um-aoB"/>
+                            <constraint firstAttribute="trailing" secondItem="Fga-Ng-y6U" secondAttribute="trailing" id="j7r-Ln-mlB"/>
+                            <constraint firstItem="90u-2O-SeA" firstAttribute="top" secondItem="Fjc-PD-2Qf" secondAttribute="bottom" id="lAB-r7-Ikx"/>
+                            <constraint firstItem="Eop-l2-GaI" firstAttribute="leading" secondItem="vxh-SI-cNp" secondAttribute="leading" id="mWT-Td-wOT"/>
+                            <constraint firstItem="Eop-l2-GaI" firstAttribute="top" secondItem="90u-2O-SeA" secondAttribute="bottom" constant="1" id="qRL-Kf-Z3E"/>
+                            <constraint firstItem="90u-2O-SeA" firstAttribute="centerX" secondItem="vxh-SI-cNp" secondAttribute="centerX" id="u3E-Jb-ayE"/>
+                            <constraint firstItem="Fga-Ng-y6U" firstAttribute="leading" secondItem="vxh-SI-cNp" secondAttribute="leading" id="xP4-UX-Cwe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Li-v1-RXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="-667"/>
+        </scene>
+        <!--自定义-->
         <scene sceneID="Kji-Up-NjV">
             <objects>
                 <viewController id="eXJ-M2-cV7" customClass="CustomViewController" customModule="MyRandom" customModuleProvider="target" sceneMemberID="viewController">
@@ -291,7 +364,7 @@
                             <constraint firstAttribute="trailing" secondItem="mZn-9N-6pq" secondAttribute="trailing" id="Ol6-gc-535"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="测试一下" id="gmI-Xa-yOm">
+                    <navigationItem key="navigationItem" title="自定义" id="gmI-Xa-yOm">
                         <barButtonItem key="rightBarButtonItem" title="+" id="O6O-O5-LaL">
                             <connections>
                                 <segue destination="qtP-ew-GRL" kind="push" id="tn1-PL-moR"/>
@@ -309,7 +382,7 @@
         <!--Add View Controller-->
         <scene sceneID="ryZ-2b-j3s">
             <objects>
-                <viewController id="qtP-ew-GRL" customClass="AddViewController" customModule="MyRandom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addView" id="qtP-ew-GRL" customClass="AddViewController" customModule="MyRandom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mVZ-22-L1M"/>
                         <viewControllerLayoutGuide type="bottom" id="Nva-oP-Ejl"/>

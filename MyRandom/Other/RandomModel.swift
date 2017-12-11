@@ -9,8 +9,8 @@
 import UIKit
 
 class RandomModel: NSObject,NSCoding {
-    var title:String?
-    var randomItems:[String]?
+    var title:String!
+    var randomItems:[String]!
     
     required init(title: String, items:[String]) {
         self.title = title
