@@ -28,7 +28,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.promptLabel.text = self.string
+        //摇一摇功能打开
         UIApplication.shared.applicationSupportsShakeToEdit = true
+        //字号自适应
         self.mainLabel.adjustsFontSizeToFitWidth = true
         changeBackGroudColor()
     }    
@@ -85,9 +87,6 @@ class ViewController: UIViewController {
         self.mainLabel.text = Mstring
         
     }
-    
-    
-    
     
     //重复随机
     func randomNumber(min:Int, max:Int, num:Int) {

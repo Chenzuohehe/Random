@@ -109,6 +109,9 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     /**======================================================
      
      */
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        self.mainTextField.resignFirstResponder()
+    }
     @IBAction func confirAdd(_ sender: UIBarButtonItem) {
         let string:String = mainTextField.text!
         if string.count > 0 {

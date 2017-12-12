@@ -38,7 +38,7 @@ func stringSize(string:String , superSize:CGSize , font:CGFloat) -> CGSize {
 
 func randomGradientLayer(frame:CGRect) -> CAGradientLayer {
     let gradientLayer = CAGradientLayer()
-    gradientLayer.frame = frame
+    gradientLayer.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
     gradientLayer.colors = [randomColor().cgColor,randomColor().cgColor]
     gradientLayer.locations = [0.0, 1.0]
     gradientLayer.startPoint = CGPoint(x: 0, y: 0)

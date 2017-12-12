@@ -30,15 +30,6 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
         dataArray = getRandoms() as NSArray
         self.mainTableView.reloadData()
     }
-    
-    //初始化的展示数据，还有删除 还有动态的动画
-    //真心话大冒险（数据也是可以请求外面的，也可以是写好的了固定数据哦） 吃什么（数据请求可以从外面获取哦），自己可以搭建一个简单的后台
-    //侧滑边上再加一个自定义。现在做的就是自定义
-    //
-    
-    // 边上一个 + 一个<-  中间就是自定义选择项的名字 哈哈哈我怎么感觉加上这个功能之后下载量会减少
-    
-    
     /**======================================================
      tableView
      */
@@ -60,6 +51,7 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
         let random = dataArray[indexPath.row] as! RandomModel
         print(random.randomItems)
         let nextViewController = CustomRandomViewController(nibName: "CustomRandomViewController", bundle: nil)
+        nextViewController.randomModel = random
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
