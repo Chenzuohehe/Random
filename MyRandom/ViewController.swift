@@ -25,14 +25,14 @@ class ViewController: UIViewController {
     var isRepeat:Bool = true
 //    var gradientLayer:CAGradientLayer = CAGradientLayer()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.promptLabel.text = self.string
         UIApplication.shared.applicationSupportsShakeToEdit = true
         self.mainLabel.adjustsFontSizeToFitWidth = true
         changeBackGroudColor()
-    }
+    }    
+    
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         self.mainText()
     }
@@ -83,7 +83,11 @@ class ViewController: UIViewController {
             }
         }
         self.mainLabel.text = Mstring
+        
     }
+    
+    
+    
     
     //重复随机
     func randomNumber(min:Int, max:Int, num:Int) {

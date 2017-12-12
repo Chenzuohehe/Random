@@ -56,6 +56,14 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
             print("确认")
             let textField = alertView.textField(at: 0)
             let text:String = (textField?.text)!
+            
+            let randoms = getRandoms()
+            for item in randoms {
+                if text == (item as! RandomModel).title {
+                    addNameAlert(msg: "随机名称不能重复")
+                    return
+                }
+            }
             if text.count > 0 {
                 self.title = textField?.text
             }else{

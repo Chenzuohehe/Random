@@ -57,10 +57,10 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
         return cell!
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("我点击了这个随机")
-        showPickView()
         let random = dataArray[indexPath.row] as! RandomModel
         print(random.randomItems)
+        let nextViewController = CustomRandomViewController(nibName: "CustomRandomViewController", bundle: nil)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        cell.backgroundColor = colorforIndex(indexPath.row)
@@ -94,12 +94,6 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
         let itemCount = dataArray.count - 1
         let color = (CGFloat(index) / CGFloat(itemCount)) * 0.7
         return UIColor(red: 1.0, green: color, blue: 0, alpha: 1.0)
-    }
-    func showPickView() {
-        // 点击后出现pickView 然后随机； + 就到下一个页面去collection view 可以添加
-        UIView.animate(withDuration: 0.5) { 
-            
-        }
     }
     func changeBackGroudColor() {
         self.mainTableView.backgroundColor = randomColor()
