@@ -67,7 +67,7 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
             nextViewController.random = random
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
-        editRowAction.backgroundColor = UIColor.yellow
+        editRowAction.backgroundColor = RGB(r: 210, g: 210, b: 210)
         let deleteRowAction = UITableViewRowAction(style: .default, title: "删除") { (sender, index) in
             let random = self.dataArray[index.row] as! RandomModel
             delectRandom(random: random)

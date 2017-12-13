@@ -12,8 +12,8 @@ class CustomRandomViewController: UIViewController {
 
     @IBOutlet weak var backVis: UIVisualEffectView!
     @IBOutlet weak var numberTextField: UITextField!
-//    @IBOutlet weak var repeatSemented: UISegmentedControl!
     @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var promptLabel: UILabel!
     
     var randomModel:RandomModel!
     var isRepeat:Bool = true
@@ -24,6 +24,7 @@ class CustomRandomViewController: UIViewController {
         self.title = self.randomModel.title
         self.numberTextField.text = String(self.randomModel.randomItems.count)
         setMainText()
+        self.promptLabel.text = "点击屏幕\n或\n摇一摇"
         
         //摇一摇功能打开
         UIApplication.shared.applicationSupportsShakeToEdit = true
@@ -47,6 +48,7 @@ class CustomRandomViewController: UIViewController {
     
     func setMainText() {
         self.hiddenTextField()
+        changeBackGroudColor()
         var Mstring:String = ""
         let num:Int! = Int(self.numberTextField.text!)
         let randomArray = returnRandomArray(num: num)
@@ -66,10 +68,6 @@ class CustomRandomViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         self.setMainText()
     }
-    
-    
-    
-    
     
     @IBAction func tap(_ sender: Any) {
         self.setMainText()

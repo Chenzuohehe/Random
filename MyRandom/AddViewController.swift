@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertViewDelegate, CZCollectionViewDelegateLeftAlignedLayout {
+class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate, CZCollectionViewDelegateLeftAlignedLayout {
     
     @IBOutlet weak var mainTextField: UITextField!
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -26,8 +26,23 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         mainCollectionView.collectionViewLayout = layout
         mainCollectionView.register(CZTextCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-    }
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AddViewController.touchView))
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let touchClass = NSStringFromClass((touch.view?.classForCoder)!)
+        let supClass = NSStringFromClass((touch.view?.superview!.superview?.classForCoder)!)
+        let fffClass = NSStringFromClass((touch.view?.superview!.classForCoder)!)
+        print(touchClass, supClass, fffClass)
+        if fffClass == "MyRandom.CZTextCollectionViewCell" {
+            return false
+        }
+        return true
+    }
+    
     /**======================================================
      alertView
      */
@@ -109,7 +124,7 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     /**======================================================
      
      */
-    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+    func touchView(_ sender: UITapGestureRecognizer) {
         self.mainTextField.resignFirstResponder()
     }
     @IBAction func confirAdd(_ sender: UIBarButtonItem) {

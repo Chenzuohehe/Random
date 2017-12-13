@@ -15,6 +15,7 @@
                 <outlet property="backVis" destination="dgT-WS-96Z" id="p8g-UD-8dh"/>
                 <outlet property="mainLabel" destination="j92-Ng-cN1" id="32S-Qg-Y5C"/>
                 <outlet property="numberTextField" destination="m39-1N-oYl" id="uh7-yV-JxL"/>
+                <outlet property="promptLabel" destination="JVn-Pa-jem" id="Oe6-mr-Dnb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,6 +29,10 @@
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="CgA-rf-MEw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Y48-o0-kXz" appends="YES" id="oyg-OF-8yl"/>
+                        </connections>
                     </view>
                     <blurEffect style="light"/>
                 </visualEffectView>
@@ -71,7 +76,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击屏幕\n或\n摇一摇" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVn-Pa-jem">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击屏幕或摇一摇" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVn-Pa-jem">
                     <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="FAh-Et-jyb"/>
@@ -100,14 +105,11 @@
                 <constraint firstItem="dgT-WS-96Z" firstAttribute="leading" secondItem="h8h-6d-rMT" secondAttribute="leading" id="slW-bj-PTE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="h8h-6d-rMT"/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="2Yo-5P-v9j" appends="YES" id="tBC-pt-Za5"/>
-            </connections>
             <point key="canvasLocation" x="120.5" y="60.5"/>
         </view>
-        <tapGestureRecognizer id="2Yo-5P-v9j">
+        <tapGestureRecognizer id="Y48-o0-kXz">
             <connections>
-                <action selector="tap:" destination="-1" id="DvQ-HR-ULk"/>
+                <action selector="tap:" destination="-1" id="ucM-Ut-rlR"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
