@@ -10,6 +10,7 @@ import UIKit
 
 class CustomRandomViewController: UIViewController {
 
+    @IBOutlet weak var msgLabel: UILabel!
     @IBOutlet weak var backVis: UIVisualEffectView!
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var mainLabel: UILabel!
@@ -22,7 +23,8 @@ class CustomRandomViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = self.randomModel.title
-        self.numberTextField.text = String(self.randomModel.randomItems.count)
+        self.numberTextField.text = "1"
+        self.msgLabel.text = "抽取个数（个数共\( String(self.randomModel.randomItems.count))个）"
         setMainText()
         self.promptLabel.text = "点击屏幕\n或\n摇一摇"
         
@@ -47,10 +49,15 @@ class CustomRandomViewController: UIViewController {
     }
     
     func setMainText() {
-        self.hiddenTextField()
-        changeBackGroudColor()
         var Mstring:String = ""
         let num:Int! = Int(self.numberTextField.text!)
+        self.hiddenTextField()
+        changeBackGroudColor()
+        if num > self.randomModel.randomItems.count {
+            self.msgLabel.text = "抽取个数 最大值\( String(self.randomModel.randomItems.count))个"
+            return
+        }
+        
         let randomArray = returnRandomArray(num: num)
 
         for i in 0..<randomArray.count {

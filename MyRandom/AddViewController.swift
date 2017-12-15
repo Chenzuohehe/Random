@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate, CZCollectionViewDelegateLeftAlignedLayout {
+class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, CZCollectionViewDelegateLeftAlignedLayout {
     
     @IBOutlet weak var mainTextField: UITextField!
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -33,11 +33,8 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        let touchClass = NSStringFromClass((touch.view?.classForCoder)!)
-        let supClass = NSStringFromClass((touch.view?.superview!.superview?.classForCoder)!)
-        let fffClass = NSStringFromClass((touch.view?.superview!.classForCoder)!)
-        print(touchClass, supClass, fffClass)
-        if fffClass == "MyRandom.CZTextCollectionViewCell" {
+        let supClass = NSStringFromClass((touch.view?.superview!.classForCoder)!)
+        if supClass == "MyRandom.CZTextCollectionViewCell" {
             return false
         }
         return true
@@ -121,22 +118,16 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         self.mainCollectionView.reloadData()
     }
     
-    /**======================================================
-     
-     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.confirmAddItem()
+        return true
+    }
+    
     func touchView(_ sender: UITapGestureRecognizer) {
         self.mainTextField.resignFirstResponder()
     }
     @IBAction func confirAdd(_ sender: UIBarButtonItem) {
-        let string:String = mainTextField.text!
-        if string.count > 0 {
-            stringArray.append(string)
-            mainTextField.text = ""
-            mainCollectionView.reloadData()
-        }else{
-            let alertView = UIAlertView(title: "随机元素不能为空", message: "", delegate: nil, cancelButtonTitle: "取消")
-            alertView.show()
-        }
+        self.confirmAddItem()
     }
     @IBAction func confirm(_ sender: Any) {
         //userd
@@ -150,7 +141,17 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         saveRandom()
         self.navigationController?.popViewController(animated: true)
     }
-    
+    func confirmAddItem() {
+        let string:String = mainTextField.text!
+        if string.count > 0 {
+            stringArray.append(string)
+            mainTextField.text = ""
+            mainCollectionView.reloadData()
+        }else{
+            let alertView = UIAlertView(title: "随机元素不能为空", message: "", delegate: nil, cancelButtonTitle: "取消")
+            alertView.show()
+        }
+    }
     func saveRandom() {
         if self.random?.title != nil {
             delectRandom(random: self.random!)

@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="backVis" destination="dgT-WS-96Z" id="p8g-UD-8dh"/>
                 <outlet property="mainLabel" destination="j92-Ng-cN1" id="32S-Qg-Y5C"/>
+                <outlet property="msgLabel" destination="q2D-jl-bFX" id="4KN-zD-b53"/>
                 <outlet property="numberTextField" destination="m39-1N-oYl" id="uh7-yV-JxL"/>
                 <outlet property="promptLabel" destination="JVn-Pa-jem" id="Oe6-mr-Dnb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
