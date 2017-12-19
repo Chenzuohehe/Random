@@ -550,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1EDA764268EC9350416F224 /* Pods-MyRandom.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HK6UA2S7R6;
 				INFOPLIST_FILE = MyRandom/Info.plist;
@@ -566,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69F61D333DB3174CF79E234C /* Pods-MyRandom.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HK6UA2S7R6;
 				INFOPLIST_FILE = MyRandom/Info.plist;
