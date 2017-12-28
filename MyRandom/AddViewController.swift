@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, CZCollectionViewDelegateLeftAlignedLayout {
+class AddViewController: UIViewController, UICollectionViewDataSource, UIGestureRecognizerDelegate, UITextFieldDelegate, CZCollectionViewDelegateLeftAlignedLayout {
     
     @IBOutlet weak var mainTextField: UITextField!
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -53,35 +53,35 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         
     }
     func addNameAlert(msg: String) {
-        let alertView = UIAlertView(title: "请输入随机内容的标题", message: msg, delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确认")
-        alertView.alertViewStyle = .plainTextInput
         
-        let titleTextField = alertView.textField(at: 0)
-        titleTextField?.placeholder = "名称"
-        alertView.show()
-    }
-    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-        switch buttonIndex {
-        case 0:
+        let alert = UIAlertController(title: "请输入随机内容的标题", message: msg, preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        let cencelAction = UIAlertAction(title: "取消", style: .cancel, handler: {sender in
             self.navigationController?.popViewController(animated: true)
-        default:
+        })
+        let confrimAction = UIAlertAction(title: "确认", style: .default) { (sender) in
             print("确认")
-            let textField = alertView.textField(at: 0)
-            let text:String = (textField?.text)!
-            
+            let text = alert.textFields![0].text
             let randoms = getRandoms()
             for item in randoms {
                 if text == (item as! RandomModel).title {
-                    addNameAlert(msg: "随机名称不能重复")
+                    self.addNameAlert(msg: "随机名称不能重复")
                     return
                 }
             }
-            if text.count > 0 {
-                self.title = textField?.text
+            if text != nil {
+                if text != ""{
+                    self.title = text
+                }else{
+                    self.addNameAlert(msg: "随机名称不能为空")
+                }
             }else{
-                addNameAlert(msg: "随机名称不能为空")
+                self.addNameAlert(msg: "随机名称不能为空")
             }
         }
+        alert.addAction(cencelAction)
+        alert.addAction(confrimAction)
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
     
     /**======================================================
@@ -134,8 +134,11 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
         //假装我做了判断
         if self.stringArray.count == 0 {
             //没有元素
-            let alertView = UIAlertView(title: "随机元素个数为0", message: "", delegate: nil, cancelButtonTitle: "取消")
-            alertView.show()
+            let cencelAlert = UIAlertController(title: "随机元素个数为0", message: nil, preferredStyle: .alert)
+            let cencelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            cencelAlert.addAction(cencelAction)
+            self.navigationController?.present(cencelAlert, animated: true, completion: nil)
+            
             return
         }
         saveRandom()
@@ -148,8 +151,10 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIAlertVi
             mainTextField.text = ""
             mainCollectionView.reloadData()
         }else{
-            let alertView = UIAlertView(title: "随机元素不能为空", message: "", delegate: nil, cancelButtonTitle: "取消")
-            alertView.show()
+            let cencelAlert = UIAlertController(title: "随机元素不能为空", message: nil, preferredStyle: .alert)
+            let cencelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            cencelAlert.addAction(cencelAction)
+            self.navigationController?.present(cencelAlert, animated: true, completion: nil)
         }
     }
     func saveRandom() {
