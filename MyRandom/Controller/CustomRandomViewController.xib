@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,10 +38,11 @@
                     <blurEffect style="light"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNG-Dj-j6s">
-                    <rect key="frame" x="0.0" y="20" width="375" height="80"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="80"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抽取个数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2D-jl-bFX">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                            <accessibility key="accessibilityConfiguration" hint="just do it" label="label string"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="n1f-c1-DNx"/>
                             </constraints>
@@ -72,7 +73,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🦊" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j92-Ng-cN1">
-                    <rect key="frame" x="0.0" y="100" width="375" height="417"/>
+                    <rect key="frame" x="0.0" y="144" width="375" height="373"/>
                     <fontDescription key="fontDescription" type="system" pointSize="38"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -90,22 +91,24 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="dgT-WS-96Z" firstAttribute="bottom" secondItem="h8h-6d-rMT" secondAttribute="bottom" id="DiV-2t-BAn"/>
+                <constraint firstItem="dgT-WS-96Z" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="DiV-2t-BAn"/>
                 <constraint firstItem="dgT-WS-96Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EYw-EA-FEv"/>
                 <constraint firstAttribute="trailing" secondItem="JVn-Pa-jem" secondAttribute="trailing" id="HSP-Wq-hJf"/>
+                <constraint firstItem="iNG-Dj-j6s" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="I45-Q3-Cc0"/>
                 <constraint firstItem="j92-Ng-cN1" firstAttribute="top" secondItem="iNG-Dj-j6s" secondAttribute="bottom" id="Ikz-Cf-bt8"/>
                 <constraint firstItem="iNG-Dj-j6s" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="M8d-yd-Hkj"/>
-                <constraint firstItem="iNG-Dj-j6s" firstAttribute="top" secondItem="h8h-6d-rMT" secondAttribute="top" id="XRU-Wk-HmL"/>
                 <constraint firstAttribute="trailing" secondItem="j92-Ng-cN1" secondAttribute="trailing" id="XsX-v9-3Cl"/>
                 <constraint firstItem="JVn-Pa-jem" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="c27-BR-CHa"/>
                 <constraint firstAttribute="bottom" secondItem="JVn-Pa-jem" secondAttribute="bottom" id="eOm-3m-c0n"/>
                 <constraint firstItem="JVn-Pa-jem" firstAttribute="top" secondItem="j92-Ng-cN1" secondAttribute="bottom" id="gtf-Tw-xtR"/>
                 <constraint firstAttribute="trailing" secondItem="iNG-Dj-j6s" secondAttribute="trailing" id="lfx-oA-DKy"/>
-                <constraint firstItem="dgT-WS-96Z" firstAttribute="trailing" secondItem="h8h-6d-rMT" secondAttribute="trailing" id="qxf-lL-PzE"/>
+                <constraint firstItem="iNG-Dj-j6s" firstAttribute="top" secondItem="UWo-Aa-bQJ" secondAttribute="top" priority="750" id="lz0-aW-nYp"/>
+                <constraint firstItem="dgT-WS-96Z" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="qxf-lL-PzE"/>
                 <constraint firstItem="j92-Ng-cN1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qza-Uo-ZbZ"/>
-                <constraint firstItem="dgT-WS-96Z" firstAttribute="leading" secondItem="h8h-6d-rMT" secondAttribute="leading" id="slW-bj-PTE"/>
+                <constraint firstItem="dgT-WS-96Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="slW-bj-PTE"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="h8h-6d-rMT"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="UWo-Aa-bQJ"/>
             <point key="canvasLocation" x="120.5" y="60.5"/>
         </view>
         <tapGestureRecognizer id="Y48-o0-kXz">

@@ -45,7 +45,7 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIGesture
      */
     override func viewWillAppear(_ animated: Bool) {
         if self.random?.title == nil {
-            addNameAlert(msg: "比如：\"中午吃什么\"、\"随机背单词\"")
+            addNameAlert(msg: "比如：\"中午吃什么\"、\"随机背单词\"\n\n（全部输入完成，点击空白隐藏键盘，底部确认）")
         }else{
             self.title = self.random?.title
             self.stringArray = (self.random?.randomItems)!
@@ -130,8 +130,7 @@ class AddViewController: UIViewController, UICollectionViewDataSource, UIGesture
         self.confirmAddItem()
     }
     @IBAction func confirm(_ sender: Any) {
-        //userd
-        //假装我做了判断
+        
         if self.stringArray.count == 0 {
             //没有元素
             let cencelAlert = UIAlertController(title: "随机元素个数为0", message: nil, preferredStyle: .alert)

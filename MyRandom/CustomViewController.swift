@@ -23,13 +23,13 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
         changeBackGroudColor()
         self.mainTableView.register(GradientcolorTableViewCell.self, forCellReuseIdentifier: "cell")
         self.mainTableView.tableFooterView = UIView()
-        self.mainTableView.separatorStyle = .none
     }
     
     override func viewWillAppear(_ animated: Bool) {
         dataArray = getRandoms() as NSArray
         self.mainTableView.reloadData()
     }
+    
     /**======================================================
      tableView
      */
@@ -57,10 +57,34 @@ class CustomViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 //        cell.backgroundColor = colorforIndex(indexPath.row)
     }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editRowAction = UIContextualAction(style: .normal, title: "编辑") { (sender, view, handle) in
+            let random = self.dataArray[indexPath.row] as! RandomModel
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = mainStoryBoard.instantiateViewController(withIdentifier: "addView") as! AddViewController
+            nextViewController.random = random
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }
+        editRowAction.backgroundColor = RGB(r: 210, g: 210, b: 210)
+        let deleteRowAction = UIContextualAction(style: .normal, title: "删除") { (sender, view, handle) in
+            let random = self.dataArray[indexPath.row] as! RandomModel
+            delectRandom(random: random)
+            self.dataArray = getRandoms() as NSArray
+            self.mainTableView.deleteRows(at: [indexPath], with: .top)
+            //莫名问题
+            self.mainTableView.reloadData()
+            handle(true)
+        }
+        deleteRowAction.backgroundColor = UIColor.orange
+        let configuration = UISwipeActionsConfiguration(actions: [deleteRowAction,editRowAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editRowAction = UITableViewRowAction(style: .default, title: "编辑") { (sender, index) in
-            print("编辑")
-            //跳转到已有页面
             let random = self.dataArray[index.row] as! RandomModel
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = mainStoryBoard.instantiateViewController(withIdentifier: "addView") as! AddViewController
